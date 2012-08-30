@@ -1,24 +1,18 @@
 class Iam
   constructor: ->
-    createSkillet
-    stylize
-
-  createSkillet: ->
     panel = $('<div id="sample-users-accounts"></div>')
     $(document.body).append panel
-    for group in gon.global.grouped_users
+    for group in gon.global.iam.grouped_users
       list = $('<ul class="sample-users-role"></ul>')
       panel.append list
       for user in group
-        userItem = $("<li class='sample-user'>#{user.name}</li>")
+        userItem = $("<li class='sample-user' user_link='#{user.link}'>#{user.name}</li>")
         list.append userItem
         userItem.on 'click', ->
-          $.json user.link, (response) ->
+          $.post $(this).attr('user_link'), (response) ->
             if response.success == 'true'
               $('.it-is-me').removeClass 'it-is-me'
               userItem.addClass 'it-is-me'
-
-  stylize: ->
 
 $ ->
   new Iam

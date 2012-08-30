@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'railties', '~> 3.1'
   s.add_dependency 'coffee-rails', '~> 3.2.1'
   s.add_dependency 'gon'
+  s.add_dependency 'twitter-bootstrap-rails'
   # s.add_development_dependency 'rspec', '~> 2.6.0'
   # s.add_development_dependency 'rails', '~> 3.0.9'
   # s.add_development_dependency 'rr', '~> 0.10.11' # 1.0.0 has respond_to? issues: http://github.com/btakita/rr/issues/issue/43
