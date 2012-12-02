@@ -1,0 +1,10 @@
+<% role, accounts = account_group %>
+
+<div class='role'>
+  <table>
+    <th>
+      <%= role.name %>
+    </th>
+    <%= render partial: 'iam/account', collection: accounts %>
+  </table>
+</div>

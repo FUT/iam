@@ -1,0 +1,3 @@
+<tr>
+  <%= render partial: 'iam/account_attribute', collection: account.attributes.slice(*Iam::Configuration.account_attributes).to_a %>
+</tr>

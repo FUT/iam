@@ -1,25 +1,21 @@
 module IamHelper
+  ROLE_CLASS = Iam::Configuration.role_class.constantize
+  ACCOUNT_CLASS = Iam::Configuration.account_class.constantize
+
   def iam
-    Gon.global.iam = { grouped_users: parametrized_user_groups }
+    @account_samples = account_samples
+    render 'iam/menu'
+  end
+
+  def verticalize(text)
+    text.split(//).join("\n")
   end
 
   private
-  def parametrized_user_groups
-    user_samples.map do |group|
-      group.map do |user|
-        parametrize_user user
-      end
+  def account_samples
+    ROLE_CLASS.all.inject({}) do |account_groups, role|
+      account_group = ACCOUNT_CLASS.where(ROLE_CLASS.to_s.foreign_key => role.id).limit(Iam::Configuration.accounts_for_each_role)
+      account_groups.merge role => account_group
     end
-  end
-
-  def user_samples
-    Role.all.inject([]) { |memo, role| memo << role.users.limit(2) }
-  end
-
-  def parametrize_user(user)
-    {
-      name: user.name,
-      link: iam_you_path(user)
-    }
   end
 end
