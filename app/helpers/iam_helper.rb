@@ -7,10 +7,6 @@ module IamHelper
     render 'iam/menu'
   end
 
-  def verticalize(text)
-    text.split(//).join("\n")
-  end
-
   private
   def account_samples
     ROLE_CLASS.all.inject({}) do |account_groups, role|
