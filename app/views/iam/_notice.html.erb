@@ -1,0 +1,4 @@
+<div class='iam-notice'>
+  Logged in as:
+  <%= account.attributes.slice(*Iam::Configuration.account_attributes).values.join(' ') %>
+</div>

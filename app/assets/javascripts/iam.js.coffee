@@ -4,8 +4,11 @@ $ ->
     $tr = $(@).parents 'tr'
     link = $tr.attr 'href'
     if link
-      $.ajax link, (data) ->
-        console.log data
+      $.post link, (data) ->
+        $menu.hide()
+        $notice = $(data.notice)
+        $('body').append $notice
+        $notice.fadeIn(300).delay(1000).fadeOut 600
 
 
   $(document).on 'keydown', (e) ->
