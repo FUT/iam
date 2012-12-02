@@ -3,7 +3,7 @@ require File.expand_path('../lib/iam/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'iam'
-  s.version     = Iam::Version
+  s.version     = Iam::VERSION
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
   s.author      = 'Yury Kaliada'
