@@ -1,3 +1,3 @@
-require 'iam/rails'
-require 'engine'
-require 'rails'
+require 'iam/engine'
+require 'iam/version'
+require 'iam/rails/routes'
