@@ -13,7 +13,7 @@ module Iam
     mattr_accessor :role_class
     @@role_class = 'Role'
 
-    mattr_accessor :role_attributes
+    mattr_accessor :role_name_attribute
     @@role_name_attribute = 'name'
 
     mattr_accessor :accounts_for_each_role
