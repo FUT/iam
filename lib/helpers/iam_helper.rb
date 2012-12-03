@@ -1,7 +1,9 @@
 module IamHelper
   def iam
     @account_samples = account_samples
-    render 'iam/menu'
+    stylesheet_link_tag('iam') +
+    javascript_include_tag('iam') +
+    render('iam/menu')
   end
 
   private
