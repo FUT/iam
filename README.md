@@ -31,7 +31,7 @@ Also you may log in using user_id (e.g. 42):
 Add gem to your gemfile:
 
 ```ruby
-gem 'iam', '~> 0.1.2'
+gem 'iam', '~> 0.1.3'
 ```
 
 Add helper to your application layout (after `jQuery`):
