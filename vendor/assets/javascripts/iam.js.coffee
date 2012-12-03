@@ -21,7 +21,7 @@ $ ->
         link = linkTemplate.replace(/ID/, input)
         log_in_by_link link
       else
-        iamNotice "#{input} is invalid id."
+        iamNotice "#{input} is invalid id." if input
     input = ''
 
   $menu.on 'click', 'td', ->

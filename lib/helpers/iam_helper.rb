@@ -1,5 +1,5 @@
 module IamHelper
-  def iam
+  def include_iam
     @account_samples = account_samples
     stylesheet_link_tag('iam') +
     javascript_include_tag('iam') +
