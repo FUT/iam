@@ -1,7 +1,5 @@
-#Iam
+##Iam
 ===
-
-##Application
 
 I'm sure you have similar workflows and user stories across your application:
 
@@ -19,14 +17,14 @@ But you don't want to click log out, click log in, fill in email and password, c
 
 Iam enables you to log in as another user in single click. All you need is to:
 
-* press ```
+* press `
 * click user you want to log in as
 
 Also you may log in using user_id (e.g. 42):
 
-* press ```
+* press `
 * type 42
-* press ```
+* press `
 
 ##Installation
 
