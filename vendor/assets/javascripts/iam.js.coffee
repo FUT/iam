@@ -33,7 +33,7 @@ $ ->
       input = ''
 
   $(document).on 'keypress', (e) ->
-    $selectedInput = $(document.getSelection().focusNode).find('input')
+    $selectedInput = $(document.getSelection().focusNode).find('input, textarea')
 
     if $selectedInput.length == 0 && (e.keyCode == 96 || e.keyCode == 1105) # '`' || 'ё'
       log_in_by_input()
