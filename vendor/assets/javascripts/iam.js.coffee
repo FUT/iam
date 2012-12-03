@@ -13,6 +13,7 @@ $ ->
     $.post link, (data) ->
       $menu.hide()
       iamNotice data.notice
+      window.location.reload()
 
   log_in_by_input = ->
     if inputMode
