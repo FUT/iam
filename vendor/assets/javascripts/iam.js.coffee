@@ -26,7 +26,10 @@ $ ->
   $menu.on 'click', 'td', ->
     $tr = $(@).parents 'tr'
     link = $tr.attr 'href'
-    log_in_by_link link if link
+    if link
+      log_in_by_link link
+      inputMode = false
+      input = ''
 
   $(document).on 'keypress', (e) ->
     if e.keyCode == 96 || e.keyCode == 1105 # '`' || 'ё'
