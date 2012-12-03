@@ -30,5 +30,22 @@ Also you may log in using user_id (e.g. 42):
 
 ##Installation
 
-gem 'iam', '~> 0.1.0'
+Add gem to your gemfile:
 
+```ruby
+gem 'iam', '~> 0.1.0'
+```
+
+Add helper to your application layout (after `jQuery`):
+
+```ruby
+<%= include_iam %>
+```
+
+##License
+
+MIT
+
+##Author
+
+Yury Kaliada
