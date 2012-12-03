@@ -1,0 +1,3 @@
+en:
+  iam:
+    success: "Successfully logged in as %{name}"

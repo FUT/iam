@@ -12,8 +12,8 @@ $ ->
   log_in_by_link = (link) ->
     $.post link, (data) ->
       $menu.hide()
-      iamNotice data.notice
       window.location.reload()
+      iamNotice data.notice
 
   log_in_by_input = ->
     if inputMode
@@ -33,7 +33,9 @@ $ ->
       input = ''
 
   $(document).on 'keypress', (e) ->
-    if e.keyCode == 96 || e.keyCode == 1105 # '`' || 'ё'
+    $selectedInput = $(document.getSelection().focusNode).find('input')
+
+    if $selectedInput.length == 0 && (e.keyCode == 96 || e.keyCode == 1105) # '`' || 'ё'
       log_in_by_input()
 
       inputMode = !inputMode

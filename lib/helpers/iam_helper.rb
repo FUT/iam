@@ -1,5 +1,7 @@
 module IamHelper
   def include_iam
+    return if Rails.env == 'production'
+
     @account_samples = account_samples
     stylesheet_link_tag('iam') +
     javascript_include_tag('iam') +
