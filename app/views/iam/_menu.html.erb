@@ -1,8 +1,4 @@
 <table id='iam-menu' href='<%= log_in_as_path(id: 'ID') %>'>
   <%= render partial: 'iam/account_group', collection: @account_samples.to_a %>
-  <tr>
-    <td class='role-name' colspan=<%= Iam::Configuration.account_attributes.count %>>
-      <%= role.public_send Iam::Configuration.role_name_attribute %>
-    </td>
-  </tr>
+  <%= render partial: 'iam/settings' %>
 </table>

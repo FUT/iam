@@ -1,0 +1,6 @@
+<tr>
+  <td class='iam-<%= key_setting %>-settings' colspan=<%= Iam::Configuration.account_attributes.count %>>
+    <%= check_box_tag key_setting %>
+    <%= t "iam.key.#{key_setting}" %>
+  </td>
+</tr>

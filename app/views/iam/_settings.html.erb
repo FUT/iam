@@ -1,0 +1,7 @@
+<tr>
+  <td class='iam-settings-header' colspan=<%= Iam::Configuration.account_attributes.count %>>
+    <%= t 'iam.settings' %>
+  </td>
+</tr>
+
+<%= render partial: 'iam/key_setting', collection: %w{alt ctrl shift} %>
