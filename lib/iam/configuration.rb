@@ -1,6 +1,6 @@
 module Iam
   module Configuration
-    def configure
+    def self.configure
       yield self
     end
 
