@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://github.com/FUT/iam'
   s.summary     = 'Simple account switcher for Rails.'
 
-  s.files        = Dir['{lib,config,spec}/**/*', '[A-Z]*', 'init.rb'] - ['Gemfile.lock']
+  s.files        = `git ls-files`.split("\n")
   s.require_path = 'lib'
 
   s.add_dependency 'activesupport', '~> 3.1'
