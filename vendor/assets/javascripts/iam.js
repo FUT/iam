@@ -2,12 +2,24 @@
 (function() {
 
   $(function() {
-    var $menu, controlKeys, controlKeysMatch, iamNotice, input, inputMode, inputSelected, isTilde, linkTemplate, logInByInput, logInByLink, processInput;
+    var $menu, controlKeys, controlKeysMatch, iamNotice, initialize, input, inputMode, inputSelected, isTilde, logInByInput, logInByLink, menuLink, processInput, templateLink;
     $menu = $('#iam-menu');
-    linkTemplate = $menu.attr('href');
+    templateLink = '/iam/log_in_as/:id';
+    menuLink = '/iam/menu';
     inputMode = false;
     input = '';
     controlKeys = ['alt', 'ctrl', 'shift'];
+    initialize = function() {
+      return $.each(controlKeys, function() {
+        var $checkbox, cookieName;
+        $checkbox = $(".iam-" + this + "-settings input");
+        cookieName = "iam-" + this + "-checked";
+        $checkbox[0].checked = $.cookie(cookieName) === 'true';
+        return $checkbox.on('click', function() {
+          return $.cookie(cookieName, this.checked);
+        });
+      });
+    };
     iamNotice = function(notice) {
       var $notice;
       $notice = $("<div class='iam-notice'>" + notice + "</div>");
@@ -41,7 +53,7 @@
     processInput = function(input) {
       var link;
       if (input.match(/^\d+$/)) {
-        link = linkTemplate.replace(/ID/, input);
+        link = templateLink.replace(/:id/, input);
         return logInByLink(link);
       } else {
         if (input) {
@@ -52,6 +64,12 @@
     logInByInput = function() {
       if (inputMode) {
         processInput(input);
+      } else {
+        $('#iam-menu').remove();
+        $.get(menuLink, function(menu) {
+          $(body).append(menu);
+          return initialize();
+        });
       }
       return input = '';
     };
@@ -63,7 +81,7 @@
         return logInByLink(link);
       }
     });
-    $(document).on('keydown', function(e) {
+    return $(document).on('keydown', function(e) {
       var _ref;
       if (!inputSelected() && isTilde(e.keyCode) && controlKeysMatch(e)) {
         logInByInput();
@@ -74,15 +92,6 @@
           return input += String.fromCharCode(e.keyCode);
         }
       }
-    });
-    return $.each(controlKeys, function() {
-      var $checkbox, cookieName;
-      $checkbox = $(".iam-" + this + "-settings input");
-      cookieName = "iam-" + this + "-checked";
-      $checkbox[0].checked = $.cookie(cookieName) === 'true';
-      return $checkbox.on('click', function() {
-        return $.cookie(cookieName, this.checked);
-      });
     });
   });
 
