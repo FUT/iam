@@ -6,6 +6,15 @@ $ ->
   input = '' # typed string
   controlKeys = ['alt', 'ctrl', 'shift']
 
+  initialize = ->
+    $.each controlKeys, ->
+      $checkbox = $(".iam-#{@}-settings input")
+      cookieName = "iam-#{@}-checked"
+
+      $checkbox[0].checked = $.cookie(cookieName) == 'true'
+
+      $checkbox.on 'click', -> $.cookie cookieName, @.checked
+
   iamNotice = (notice) ->
     $notice = $("<div class='iam-notice'>#{notice}</div>")
     $('body').append $notice
@@ -43,6 +52,7 @@ $ ->
       $('#iam-menu').remove()
       $.get menuLink, (menu) ->
         $(body).append menu
+        initialize()
 
     input = ''
 
@@ -59,11 +69,3 @@ $ ->
       $menu.toggle()
     else
       input += String.fromCharCode e.keyCode if 48 <= e.keyCode <= 57
-
-  $.each controlKeys, ->
-    $checkbox = $(".iam-#{@}-settings input")
-    cookieName = "iam-#{@}-checked"
-
-    $checkbox[0].checked = $.cookie(cookieName) == 'true'
-
-    $checkbox.on 'click', -> $.cookie cookieName, @.checked
