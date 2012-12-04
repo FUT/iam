@@ -8,11 +8,11 @@ module Rack
 
     private
     def css_code
-      typed_asset 'stylesheets', 'iam.css'
+      '<style type="text/css">' << typed_asset('stylesheets', 'iam.css') << '</style>'
     end
 
     def js_code
-      typed_asset 'javascripts', 'iam.js', 'jquery.cookie.js'
+      '<script type="text/javascript">' << typed_asset('javascripts', 'iam.js', 'jquery.cookie.js') << '</script>'
     end
 
     def account_samples
