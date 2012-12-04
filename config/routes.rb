@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  post '/iam_you/:id', controller: :iam, action: :log_in_as, as: :log_in_as
+  post 'iam/log_in_as/:id' => 'iam#log_in_as', as: :log_in_as
+  get 'iam/menu' => 'iam#menu', as: :iam_menu
 end

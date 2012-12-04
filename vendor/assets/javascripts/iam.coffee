@@ -1,6 +1,7 @@
 $ ->
   $menu = $('#iam-menu')
-  linkTemplate = $menu.attr 'href'
+  templateLink = '/iam/log_in_as/:id'
+  menuLink = '/iam/menu'
   inputMode = false # account id is anticipated to be typed
   input = '' # typed string
   controlKeys = ['alt', 'ctrl', 'shift']
@@ -30,13 +31,19 @@ $ ->
 
   processInput = (input) ->
     if input.match(/^\d+$/)
-      link = linkTemplate.replace(/ID/, input)
+      link = templateLink.replace(/:id/, input)
       logInByLink link
     else
       iamNotice "#{input} is invalid id." if input
 
   logInByInput = ->
-    processInput input if inputMode
+    if inputMode
+      processInput input
+    else
+      $('#iam-menu').remove()
+      $.get menuLink, (menu) ->
+        $(body).append menu
+
     input = ''
 
   $menu.on 'click', 'td', ->

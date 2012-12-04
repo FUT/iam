@@ -1,4 +1,6 @@
 class IamController < ApplicationController
+  def menu; end
+
   def log_in_as
     return if Rail.env == 'production'
 
