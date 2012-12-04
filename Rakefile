@@ -15,18 +15,19 @@ end
 desc 'Precompile vendor assets'
 task :precompile do |t|
   precompile_sass
+  precompile_coffee
 end
 
 def precompile_sass
-  Dir[File.join('**', '*sass')].each do |file|
+  Dir[File.join('**', '*.sass')].each do |file|
     system "sass #{file} > #{file.gsub('.sass', '')}"
     p "File #{file} precompiled"
   end
 end
 
 def precompile_coffee
-  Dir[File.join('**', '*coffee')].each do |file|
-    system "sass #{file} > #{file.gsub('.sass', '')}"
+  Dir[File.join('**', '*.coffee')].each do |file|
+    system "coffee -c #{file}"
     p "File #{file} precompiled"
   end
 end
