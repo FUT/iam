@@ -5,7 +5,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
   cursor: pointer;
   width: 250px;
   z-index: 1000; }

@@ -37,11 +37,11 @@
       return String.fromCharCode(code) === 'À';
     };
     controlKeysMatch = function(e) {
-      var checkBox, key, _i, _len;
+      var key, keyOn, _i, _len;
       for (_i = 0, _len = controlKeys.length; _i < _len; _i++) {
         key = controlKeys[_i];
-        checkBox = $(".iam-" + key + "-settings input")[0];
-        if (checkBox.checked !== e["" + key + "Key"]) {
+        keyOn = $.cookie("iam-" + key + "-checked") === 'true';
+        if (keyOn !== e["" + key + "Key"]) {
           return false;
         }
       }
@@ -64,10 +64,10 @@
     logInByInput = function() {
       if (inputMode) {
         processInput(input);
-      } else {
         $('#iam-menu').remove();
+      } else {
         $.get(menuLink, function(menu) {
-          $(body).append(menu);
+          $('body').append(menu);
           return initialize();
         });
       }

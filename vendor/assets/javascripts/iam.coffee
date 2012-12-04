@@ -31,8 +31,8 @@ $ ->
 
   controlKeysMatch = (e) ->
     for key in controlKeys
-      checkBox = $(".iam-#{key}-settings input")[0]
-      return false if checkBox.checked != e["#{key}Key"]
+      keyOn = $.cookie("iam-#{key}-checked") == 'true'
+      return false if keyOn != e["#{key}Key"]
     true
 
   inputSelected = ->
@@ -48,10 +48,10 @@ $ ->
   logInByInput = ->
     if inputMode
       processInput input
-    else
       $('#iam-menu').remove()
+    else
       $.get menuLink, (menu) ->
-        $(body).append menu
+        $('body').append menu
         initialize()
 
     input = ''
