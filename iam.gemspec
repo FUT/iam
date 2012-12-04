@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'devise'
-  s.add_development_dependency 'rails', '~> 3.1'
+  s.add_development_dependency 'rails', '~> 3.0'
   s.add_development_dependency 'rspec-rails', '~> 2.10'
 
   s.rubyforge_project = s.name
