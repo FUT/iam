@@ -16,11 +16,12 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
 
   s.add_dependency 'activesupport', '~> 3.1'
-  s.add_dependency 'sass'
-  s.add_dependency 'coffee-rails'
+  s.add_dependency 'rack'
 
-  s.add_development_dependency 'jquery-rails'
+  s.add_development_dependency 'pry'
   s.add_development_dependency 'sass'
+  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'devise'
   s.add_development_dependency 'rails', '~> 3.1'

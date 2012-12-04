@@ -1,0 +1,33 @@
+#iam-menu {
+  text-align: center;
+  background: #d9ead3;
+  border-spacing: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  cursor: pointer;
+  width: 250px;
+  z-index: 1000; }
+  #iam-menu td {
+    border: 1px solid #c9dac3;
+    margin: 0;
+    padding: 2px; }
+  #iam-menu .role-name, #iam-menu .iam-settings-header {
+    cursor: default;
+    padding: 5px;
+    font-size: 120%;
+    font-weight: bold; }
+  #iam-menu .iam-setting {
+    text-align: left;
+    padding-left: 10px; }
+
+.iam-notice {
+  position: fixed;
+  left: 200px;
+  top: 0;
+  background: #d9ead3;
+  padding: 5px;
+  display: none;
+  width: 300px;
+  z-index: 1000; }
