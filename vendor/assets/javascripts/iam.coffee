@@ -7,6 +7,9 @@ $ ->
   controlKeys = ['alt', 'ctrl', 'shift']
 
   initialize = ->
+    $('.iam-settings-header').on 'click', ->
+      $('.iam-settings').toggle()
+
     $('#iam-menu').on 'click', 'td', ->
       $tr = $(@).parents 'tr'
       link = $tr.attr 'href'

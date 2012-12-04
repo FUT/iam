@@ -10,6 +10,9 @@
     input = '';
     controlKeys = ['alt', 'ctrl', 'shift'];
     initialize = function() {
+      $('.iam-settings-header').on('click', function() {
+        return $('.iam-settings').toggle();
+      });
       $('#iam-menu').on('click', 'td', function() {
         var $tr, link;
         $tr = $(this).parents('tr');
