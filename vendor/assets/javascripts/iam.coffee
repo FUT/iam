@@ -7,6 +7,11 @@ $ ->
   controlKeys = ['alt', 'ctrl', 'shift']
 
   initialize = ->
+    $('#iam-menu').on 'click', 'td', ->
+      $tr = $(@).parents 'tr'
+      link = $tr.attr 'href'
+      logInByLink link if link
+
     $.each controlKeys, ->
       $checkbox = $(".iam-#{@}-settings input")
       cookieName = "iam-#{@}-checked"
@@ -55,11 +60,6 @@ $ ->
         initialize()
 
     input = ''
-
-  $menu.on 'click', 'td', ->
-    $tr = $(@).parents 'tr'
-    link = $tr.attr 'href'
-    logInByLink link if link
 
   $(document).on 'keydown', (e) ->
     if !inputSelected() && isTilde(e.keyCode) && controlKeysMatch(e)

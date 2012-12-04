@@ -10,6 +10,14 @@
     input = '';
     controlKeys = ['alt', 'ctrl', 'shift'];
     initialize = function() {
+      $('#iam-menu').on('click', 'td', function() {
+        var $tr, link;
+        $tr = $(this).parents('tr');
+        link = $tr.attr('href');
+        if (link) {
+          return logInByLink(link);
+        }
+      });
       return $.each(controlKeys, function() {
         var $checkbox, cookieName;
         $checkbox = $(".iam-" + this + "-settings input");
@@ -73,14 +81,6 @@
       }
       return input = '';
     };
-    $menu.on('click', 'td', function() {
-      var $tr, link;
-      $tr = $(this).parents('tr');
-      link = $tr.attr('href');
-      if (link) {
-        return logInByLink(link);
-      }
-    });
     return $(document).on('keydown', function(e) {
       var _ref;
       if (!inputSelected() && isTilde(e.keyCode) && controlKeysMatch(e)) {
