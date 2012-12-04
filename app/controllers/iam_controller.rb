@@ -6,7 +6,7 @@ class IamController < ApplicationController
   end
 
   def log_in_as
-    return if Rail.env == 'production'
+    return if Rails.env == 'production'
 
     account = Iam::Configuration.account_class.constantize.find(params[:id])
     sign_in Iam::Configuration.account_class.downcase, account
