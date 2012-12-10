@@ -10,7 +10,7 @@ module Rack
     end
 
     def js_code
-      "<script type='text/javascript'>#{typed_asset('javascripts', 'iam.js', 'jquery.cookie.js')}</script>"
+      "<script type='text/javascript'>#{typed_asset('javascripts', 'iam.ujs', 'jquery.cookie.ujs')}</script>"
     end
 
     def typed_asset(type, *files)
