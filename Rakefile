@@ -26,8 +26,12 @@ def precompile_sass
 end
 
 def precompile_coffee
+  require 'uglifier'
+
   Dir[File.join('**', '*.coffee')].each do |file|
-    system "coffee -c #{file}"
+    js_code = %x(coffee -p -c #{file})
+    js_file = file.gsub /coffee\Z/, 'js'
+    File.open(js_file, 'w') { |f| f << Uglifier.compile(js_code) }
     p "File #{file} precompiled"
   end
 end

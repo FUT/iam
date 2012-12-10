@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rack'
 
   s.add_development_dependency 'pry'
+  s.add_development_dependency 'uglifier'
   s.add_development_dependency 'sass'
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'jquery-rails'
