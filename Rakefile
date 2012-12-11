@@ -37,8 +37,8 @@ def uglify_js
   require 'uglifier'
 
   Dir[File.join('vendor', 'assets', 'javascripts', '*.js')].each do |file|
-    uglified_file = file.gsub /js\Z/, 'ujs'
-    File.open(uglified_file, 'w') { |f| f << Uglifier.compile(File.read(file)) }
+    javascript = File.read(file)
+    File.open(file, 'w') { |f| f << Uglifier.compile(javascript) }
     p "File #{file} uglified"
   end
 end
