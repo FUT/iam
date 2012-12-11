@@ -1,7 +1,7 @@
 module Rack
   module AssetHelpers
     def html_code
-      css_code << js_code
+      (css_code << js_code).gsub '\\', '\\\\\\\\'
     end
 
     private
