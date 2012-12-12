@@ -16,7 +16,7 @@ desc 'Precompile vendor assets'
 task :precompile do |t|
   precompile_sass
   precompile_coffee
-  uglify_js
+  # uglify_js
 end
 
 def precompile_sass

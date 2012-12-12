@@ -1,5 +1,4 @@
 $ ->
-  $menu = $('#iam-menu')
   templateLink = '/iam/log_in_as/:id'
   menuLink = '/iam/menu'
   inputMode = false # account id is anticipated to be typed
@@ -30,7 +29,6 @@ $ ->
 
   logInByLink = (link) ->
     $.post link, (data) ->
-      $menu.hide()
       window.location.reload()
       iamNotice data.notice
 
@@ -56,7 +54,6 @@ $ ->
   logInByInput = ->
     if inputMode
       processInput input
-      $('#iam-menu').remove()
     else
       $.get menuLink, (menu) ->
         $('body').append menu
@@ -69,6 +66,6 @@ $ ->
       logInByInput()
 
       inputMode = !inputMode
-      $menu.toggle()
+      $('#iam-menu').remove()
     else
       input += String.fromCharCode e.keyCode if 48 <= e.keyCode <= 57
