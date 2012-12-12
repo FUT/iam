@@ -22,6 +22,8 @@
     padding-left: 10px; }
   #iam-menu .iam-settings {
     display: none; }
+  #iam-menu #iam-current-account td {
+    border: 2px solid red !important; }
 
 .iam-notice {
   position: fixed;

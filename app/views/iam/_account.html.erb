@@ -1,3 +1,3 @@
-<tr href='<%= log_in_as_path(account) %>'>
+<tr id='<%='iam-current-account' if account == current_user%>' href='<%= log_in_as_path(account) %>'>
   <%= render partial: 'iam/account_attribute', collection: Iam::Configuration.account_attributes.map { |key| [key, account.public_send(key)] } %>
 </tr>
