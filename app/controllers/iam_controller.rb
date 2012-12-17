@@ -8,14 +8,20 @@ class IamController < ApplicationController
   def log_in_as
     return if Rails.env == 'production'
 
-    account = Iam::Configuration.account_class.constantize.find(params[:id])
-    sign_in Iam::Configuration.account_class.downcase, account
+    Iam::Configuration.authorization_provider.log_in_as account
 
-    name = Iam::Configuration.account_attributes.map{ |key| account.public_send(key)}.join(' ')
-    render json: { notice: I18n.t('iam.success', name: name) }
+    render json: { notice: I18n.t('iam.success', name: account_label(account)) }
   end
 
   private
+  def account
+    Iam::Configuration.account_class.constantize.find(params[:id])
+  end
+
+  def account_label(account)
+    Iam::Configuration.account_attributes.map{ |key| account.public_send(key)}.join(' ')
+  end
+
   def account_samples
     role_class = Iam::Configuration.role_class.constantize
     account_class = Iam::Configuration.account_class.constantize
