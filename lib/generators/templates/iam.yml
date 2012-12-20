@@ -1,0 +1,15 @@
+:accounts_for_each_role: 3
+
+:exclude_environments:
+  - production
+
+:account:
+  :class: User
+  :name_attributes:
+  - id
+  - full_name
+
+:role:
+  :class: Role
+  :name_attributes:
+  - name
