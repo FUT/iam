@@ -3,7 +3,7 @@ module Rack
     TEMPLATE = ActionView::Base.new
 
     def head_code
-      css_code << js_code
+      ''#css_code << js_code
     end
 
     private
