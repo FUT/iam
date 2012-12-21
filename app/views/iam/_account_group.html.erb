@@ -1,8 +1,8 @@
 <% role, accounts = account_group %>
 
 <tr>
-  <td class='role-name' colspan=<%= Iam::Configuration.account_attributes.count %>>
-    <%= role.public_send Iam::Configuration.role_name_attribute %>
+  <td class='role-name' colspan=<%= Iam::Configuration[:account][:attributes].count %>>
+    <%= role_name role %>
   </td>
 </tr>
 

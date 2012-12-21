@@ -1,11 +1,11 @@
 <tr>
-  <td class='iam-settings-header' colspan=<%= Iam::Configuration.account_attributes.count %>>
+  <td class='iam-settings-header' colspan=<%= Iam::Configuration[:account][:attributes].count %>>
     <%= t 'iam.settings' %>
   </td>
 </tr>
 
 <tr>
-  <td class='iam-settings' colspan=<%= Iam::Configuration.account_attributes.count %>>
+  <td class='iam-settings' colspan=<%= Iam::Configuration[:account][:attributes].count %>>
     <%= render partial: 'iam/key_setting', collection: %w{alt ctrl shift} %>
   </td>
 </tr>

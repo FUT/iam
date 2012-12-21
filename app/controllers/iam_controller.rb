@@ -1,34 +1,21 @@
 class IamController < ApplicationController
+  include IamHelper
+  include Iam::AuthorizationProvider::Factory.current_provider
+
   layout false
 
-  def menu
-    @account_samples = account_samples
-  end
+  def menu; end
 
-  def log_in_as
+  def log_in
     return if Rails.env == 'production'
 
-    Iam::Configuration.authorization_provider.log_in_as account
+    log_in_account account
 
-    render json: { notice: I18n.t('iam.success', name: account_label(account)) }
+    render json: { notice: I18n.t('iam.success', name: account_name(account)) }
   end
 
   private
   def account
-    Iam::Configuration.account_class.constantize.find(params[:id])
-  end
-
-  def account_label(account)
-    Iam::Configuration.account_attributes.map{ |key| account.public_send(key)}.join(' ')
-  end
-
-  def account_samples
-    role_class = Iam::Configuration.role_class.constantize
-    account_class = Iam::Configuration.account_class.constantize
-
-    role_class.all.inject({}) do |account_groups, role|
-      account_group = account_class.where(role_class.to_s.foreign_key => role.id).order(:id).limit(Iam::Configuration.accounts_for_each_role)
-      account_groups.merge role => account_group
-    end
+    Iam::Configuration[:account][:class].constantize.find(params[:id])
   end
 end

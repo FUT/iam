@@ -1,5 +1,5 @@
 $ ->
-  templateLink = '/iam/log_in_as/:id'
+  templateLink = '/iam/log_in/:id'
   menuLink = '/iam/menu'
   inputMode = false # account id is anticipated to be typed
   input = '' # typed string
