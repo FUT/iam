@@ -1,3 +1,5 @@
+require 'iam/authorization_provider/devise'
+
 module Iam
   module AuthorizationProvider
     module Factory

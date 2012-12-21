@@ -1,10 +1,9 @@
 require 'rack'
 
+require 'iam/version'
 require 'iam/configuration'
+require 'iam/engine' if defined?(Rails::Engine)
 
-require 'iam/authorization_provider/devise'
 require 'iam/authorization_provider/factory'
 
-require 'iam/engine'
-require 'iam/version'
 require 'rack/assets_middleware'
