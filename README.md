@@ -31,7 +31,7 @@ Also you may log in using user_id (e.g. 42):
 Add gem to your gemfile:
 
 ```ruby
-gem 'iam', '~> 0.1.11'
+gem 'iam', '~> 0.2.0'
 ```
 ##Configuration
 
@@ -41,7 +41,7 @@ Generate configuration file:
 rails g iam:initializer
 ```
 
-All major configuration params available are described there.
+All configuration params available are self descriptive enough.
 
 Also each developer can configure control keys (alt ctrl shift) to make up iam-menu show/hide combination.
 These configurations are saved into cookies and you may forget these settings after first customization.
