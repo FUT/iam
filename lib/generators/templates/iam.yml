@@ -1,9 +1,6 @@
 :accounts_for_each_role: 3
 :authorization_provider: devise
 
-:exclude_environments:
-  - production
-
 :account:
   :class: User
   :attributes:
