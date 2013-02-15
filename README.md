@@ -13,9 +13,15 @@ I'm sure you have similar workflows and user stories across your application:
 
 But you don't want to click log out, click log in, fill in email and password, click submit again and again, do you?
 
+##Features
+
+1. Log in via user selection from list
+2. Log in via typing user id
+3. Log out
+
 ##Usage
 
-Iam enables you to log in as another user in single click. All you need is to:
+Log in via user selection from list:
 
 * press `
 * click user you want to log in as
@@ -41,10 +47,41 @@ Generate configuration file:
 rails g iam:initializer
 ```
 
-All configuration params available are self descriptive enough.
+You will get `config/iam.yml` that will suit you in 9 cases from 10:
+
+```yml
+# Amount of accounts to display for each role block
+:accounts_for_each_role: 3
+
+# Authorization provider will be used to perform log_in and log_out routines.
+# You may easily extend current list of providers available. All you need
+# is to implement MyProvider module and replace the setting with `my_provider` value
+:authorization_provider: devise
+
+:account:
+  # This class will be used to instantiate accounts
+  :class: User
+
+  # These attributes will be shown in a row for each account
+  :attributes:
+  - id
+  - full_name
+
+:role:
+  # This class will be used to instantiate account roles
+  :class: Role
+
+  # These attributes will be shown in a row for each role header
+  :attributes:
+  - name
+```
+
+All configuration params are well described and make the gem really flexible.
 
 Also each developer can configure control keys (alt ctrl shift) to make up iam-menu show/hide combination.
 These configurations are saved into cookies and you may forget these settings after first customization.
+
+Also the gem was __totally__ disabled from usage in production environment. Thus you can sleep peaсefully ;)
 
 ##License
 
