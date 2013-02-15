@@ -1,4 +1,9 @@
 <table id='iam-menu'>
   <%= render partial: 'iam/account_group', collection: account_samples.to_a %>
+
+  <% if signed_in? %>
+    <%= render partial: 'iam/sign_out' %>
+  <% end %>
+
   <%= render partial: 'iam/settings' %>
 </table>
