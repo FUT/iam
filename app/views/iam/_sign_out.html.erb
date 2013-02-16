@@ -1,0 +1,5 @@
+<tr href='<%= log_out_path(current_user) %>' class='sign-out'>
+  <td class='log-out-header' colspan=<%= Iam::Configuration[:account][:attributes].count %>>
+    <%= t('iam.log_out.log_out') %>
+  </td>
+</tr>

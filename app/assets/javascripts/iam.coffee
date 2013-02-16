@@ -1,5 +1,6 @@
 $ ->
   templateLink = '/iam/log_in/:id'
+  logOutLink = '/iam/log_out/:id'
   menuLink = '/iam/menu'
   inputMode = false # account id is anticipated to be typed
   input = '' # typed string
@@ -9,10 +10,14 @@ $ ->
     $('.iam-settings-header').on 'click', ->
       $('.iam-settings').toggle()
 
-    $('#iam-menu').on 'click', 'td', ->
+    $('#iam-menu').on 'click', 'td.attribute', ->
       $tr = $(@).parents 'tr'
       link = $tr.attr 'href'
       logInByLink link if link
+
+    $('#iam-menu tr.sign-out').on 'click', ->
+      link = $(this).attr 'href'
+      logOutByLink link if link
 
     $.each controlKeys, ->
       $checkbox = $(".iam-#{@}-settings input")
@@ -31,6 +36,14 @@ $ ->
     $.post link, (data) ->
       window.location.reload()
       iamNotice data.notice
+
+  logOutByLink = (link) ->
+    $.ajax
+      url: link,
+      type: 'DELETE',
+      success: (data) ->
+        window.location.reload()
+        iamNotice data.notice
 
   isTilde = (code) ->
     String.fromCharCode(code) == 'À' # tilde with any control key (alt shift ctrl)

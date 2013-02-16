@@ -1,3 +1,8 @@
 en:
   iam:
-    success: "Successfully logged in as %{name}"
+    log_in:
+      success: "Successfully logged in as %{name}"
+    log_out:
+      log_out: Log out
+      success: Successfully logged out
+    settings: Settings

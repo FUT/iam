@@ -7,11 +7,19 @@ class IamController < ApplicationController
   def menu; end
 
   def log_in
-    return if Rails.env == 'production'
+    return if Rails.env.production?
 
     log_in_account account
 
-    render json: { notice: I18n.t('iam.success', name: account_name(account)) }
+    render json: { notice: I18n.t('iam.log_in.success', name: account_name(account)) }
+  end
+
+  def log_out
+    return if Rails.env.production?
+
+    log_out_account account
+
+    render json: { notice: I18n.t('iam.log_out.success') }
   end
 
   private
