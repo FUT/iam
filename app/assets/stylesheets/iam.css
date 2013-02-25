@@ -13,7 +13,7 @@
     margin: 0;
     padding: 2px; }
   #iam-menu .role-name, #iam-menu .iam-settings-header, #iam-menu .log-out-header {
-    cursor: default;
+    cursor: cursor;
     padding: 5px;
     font-size: 120%;
     font-weight: bold; }
