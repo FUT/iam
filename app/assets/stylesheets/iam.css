@@ -13,13 +13,15 @@
     margin: 0;
     padding: 2px; }
   #iam-menu .role-name, #iam-menu .iam-settings-header, #iam-menu .log-out-header {
-    cursor: default;
+    cursor: cursor;
     padding: 5px;
     font-size: 120%;
     font-weight: bold; }
   #iam-menu .iam-setting {
     text-align: left;
     padding-left: 10px; }
+    #iam-menu .iam-setting label {
+      cursor: pointer; }
   #iam-menu .iam-settings {
     display: none; }
   #iam-menu #iam-current-account td {
