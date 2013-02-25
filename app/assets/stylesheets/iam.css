@@ -20,6 +20,8 @@
   #iam-menu .iam-setting {
     text-align: left;
     padding-left: 10px; }
+    #iam-menu .iam-setting label {
+      cursor: pointer; }
   #iam-menu .iam-settings {
     display: none; }
   #iam-menu #iam-current-account td {
