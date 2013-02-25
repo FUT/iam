@@ -46,7 +46,8 @@ $ ->
         iamNotice data.notice
 
   isTilde = (code) ->
-    String.fromCharCode(code) == 'À' # tilde with any control key (alt shift ctrl)
+    tilde_codes = [192, 221]
+    code in tilde_codes
 
   controlKeysMatch = (e) ->
     for key in controlKeys
