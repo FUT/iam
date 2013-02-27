@@ -39,13 +39,14 @@ Add gem to your gemfile:
 ```ruby
 gem 'iam', '~> 0.2.2'
 ```
-##Configuration
 
 Generate configuration file:
 
 ```bash
 rails g iam:initializer
 ```
+
+##Configuration
 
 You will get `config/iam.yml` that will suit you in 9 cases from 10:
 
